@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/plugin_vertical_margin"
+    android:paddingLeft="@dimen/plugin_horizontal_margin"
+    android:paddingRight="@dimen/plugin_horizontal_margin"
+    android:paddingTop="@dimen/plugin_vertical_margin"
+    tools:context="com.example.pluginstudy.MainActivity">
+
+    <Button
+        android:id="@+id/button_shared_1"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取宿主程序缓存的数据" />
+
+    <Button
+        android:id="@+id/button_shared_11"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空宿主程序缓存的数据" />
+
+
+    <Button
+        android:id="@+id/button_shared_2"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="缓存插件《PluginCode》文本" />
+
+    <Button
+        android:id="@+id/button_shared_3"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读取插件缓存文本" />
+
+    <Button
+        android:id="@+id/button_shared_4"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空插件缓存文本" />
+
+</LinearLayout>

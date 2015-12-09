@@ -1,0 +1,19 @@
+<com.cjj.MaterialRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    app:overlay="true"
+    app:progress_colors="@array/material_colors"
+    app:wave_color="#5011ff11"
+    app:wave_height_type="higher"
+    app:wave_show="true">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+</com.cjj.MaterialRefreshLayout>

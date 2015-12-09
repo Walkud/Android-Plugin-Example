@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/plugin_vertical_margin"
+    android:paddingLeft="@dimen/plugin_horizontal_margin"
+    android:paddingRight="@dimen/plugin_horizontal_margin"
+    android:paddingTop="@dimen/plugin_vertical_margin">
+
+    <Button
+        android:id="@+id/button_sdk_db"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SdkDb" />
+
+    <Button
+        android:id="@+id/button_orm_db"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OrmDb" />
+
+
+</LinearLayout>

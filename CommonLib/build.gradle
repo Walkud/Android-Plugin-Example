@@ -1,0 +1,77 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0.2"
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    compile project(':PluginCode')//依赖插件框架
+
+    provided files(SUPPORT_V4_JAR)
+
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.cjj.materialrefeshlayout:library:1.3.0'//下拉刷新控件
+    compile 'com.j256.ormlite:ormlite-core:4.48'//数据库核心
+    compile 'com.j256.ormlite:ormlite-android:4.48'//数据库
+    compile 'com.squareup.okhttp:okhttp:2.5.0'//网络请求volley+okhttp
+    compile 'com.mcxiaoke.volley:library:1.0.19'//网络请求volley+okhttp
+    compile 'com.squareup.picasso:picasso:2.5.2'//图片下载
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'commons-net:commons-net:3.3'//Apache Commons Net library
+    compile 'de.greenrobot:eventbus:2.4.0'
+}
+
+//删掉指定目录的Jar包
+task clearCommonLibJar(type: Delete) {
+    delete '../ProvidedJar/CommonLib.jar'
+    println 'clearCommonLibJar'
+}
+
+//创建Jar包，生成目录在build/libs
+task createCommonLibJar(type: Jar) {
+    //指定生成的jar名
+    baseName 'CommonLib'
+    from 'build/intermediates/classes/release/'
+    include '**/*.class'
+    println 'createCommonLibJar'
+}
+
+//将生成的Jar包复制到指定目录
+task copyCommonLibJar(type: Copy) {
+    from 'build/libs/CommonLib.jar'
+    into '../ProvidedJar/' // 目标位置
+    println 'copyCommonLibJar'
+}
+
+copyCommonLibJar.dependsOn(clearCommonLibJar, build, createCommonLibJar)

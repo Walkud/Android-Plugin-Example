@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    defaultConfig {
+        applicationId "com.example.pluginstudy"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0.20x5f"
+    }
+
+    signingConfigs {
+        myConfig {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            res.srcDirs = ['src/main/res', 'src/main/res/raw']
+        }
+    }
+
+    buildTypes {
+
+        release {
+            signingConfig signingConfigs.myConfig
+            minifyEnabled false
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    productFlavors {
+        inside {
+            applicationId "com.example.pluginstudy.inside"
+        }
+        pluginOne {
+            applicationId "com.example.pluginstudy"
+        }
+    }
+}
+
+dependencies {
+
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.cjj.materialrefeshlayout:library:1.3.0'//下拉刷新控件
+
+    pluginOneProvided files(SUPPORT_V4_JAR)
+    pluginOneProvided files(COMMON_LIB)
+    pluginOneProvided files(PLUGIN_CODE_LIB)
+    pluginOneProvided 'com.squareup.picasso:picasso:2.5.2'
+    pluginOneProvided 'de.greenrobot:eventbus:2.4.0'
+    pluginOneProvided 'com.j256.ormlite:ormlite-core:4.48'
+    pluginOneProvided 'com.j256.ormlite:ormlite-android:4.48'
+    pluginOneProvided 'com.squareup.okhttp:okhttp:2.5.0'//网络请求volley+okhttp
+    pluginOneProvided 'com.mcxiaoke.volley:library:1.0.19'//网络请求volley+okhttp
+    pluginOneProvided 'com.google.code.gson:gson:2.3.1'
+
+    provided 'com.jakewharton:butterknife:7.0.1'
+
+    insideCompile project(':CommonLib')
+    insideCompile project(':PluginCode')
+
+
+//    insideProvided files(SUPPORT_V4_JAR)
+//    insideProvided files(COMMON_LIB)
+//    insideProvided files(PLUGIN_CODE_LIB)
+//    insideProvided files(RECYCLER_VIEW)
+//    insideProvided 'com.squareup.picasso:picasso:2.5.2'
+//    insideProvided 'de.greenrobot:eventbus:2.4.0'
+//    insideProvided 'com.j256.ormlite:ormlite-core:4.48'
+//    insideProvided 'com.j256.ormlite:ormlite-android:4.48'
+}

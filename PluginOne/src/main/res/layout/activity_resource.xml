@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/plugin_vertical_margin"
+    android:paddingLeft="@dimen/plugin_horizontal_margin"
+    android:paddingRight="@dimen/plugin_horizontal_margin"
+    android:paddingTop="@dimen/plugin_vertical_margin">
+
+    <Button
+        android:id="@+id/button_assets"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Assets资源" />
+
+    <Button
+        android:id="@+id/button_raw"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Raw资源" />
+
+    <Button
+        android:id="@+id/button_common_lib"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="公共库Lib图片资源" />
+
+
+</LinearLayout>

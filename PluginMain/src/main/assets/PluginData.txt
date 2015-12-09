@@ -1,0 +1,35 @@
+[
+    {
+        "pluginId":"com.example.pluginstudy",
+        "desc": "PluginOne",
+        "version": "1.0.2",
+        "url": "http://172.25.105.14:8080/PluginOne-pluginOne-release.apk",
+        "path": "PluginOne-pluginOne-release.apk",
+        "isSilent": false,
+        "classType": "Activity",
+        "bootClass": "com.example.pluginstudy.MainActivity",
+        "params": "{\"no\":1234567,\"str\":\"abcder\"}"
+    },
+    {
+        "pluginId":"com.zbar.lib",
+        "desc": "二维码扫描",
+        "version": "1.0",
+        "url": "",
+        "path": "QrScanCode-qrScanCode-release.apk",
+        "isSilent": false,
+        "classType": "Activity",
+        "bootClass": "com.zbar.lib.CaptureActivity",
+        "params": "{\"no\":666666,\"str\":\"222234\"}"
+    },
+    {
+        "pluginId":"net.micode.notes",
+        "desc": "独立插件",
+        "version": "0.1",
+        "url": "",
+        "path": "miui-note-demo.apk",
+        "isSilent": false,
+        "classType": "Activity",
+        "bootClass": "net.micode.notes.ui.NotesListActivity",
+        "params": "{\"no\":999999,\"str\":\"kddde\"}"
+    }
+]

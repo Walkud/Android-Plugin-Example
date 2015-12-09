@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-Plugin-Example.iml" filepath="$PROJECT_DIR$/Android-Plugin-Example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonLib/CommonLib.iml" filepath="$PROJECT_DIR$/CommonLib/CommonLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PluginCode/PluginCode.iml" filepath="$PROJECT_DIR$/PluginCode/PluginCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PluginMain/PluginMain.iml" filepath="$PROJECT_DIR$/PluginMain/PluginMain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PluginOne/PluginOne.iml" filepath="$PROJECT_DIR$/PluginOne/PluginOne.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QrScanCode/QrScanCode.iml" filepath="$PROJECT_DIR$/QrScanCode/QrScanCode.iml" />
+    </modules>
+  </component>
+</project>

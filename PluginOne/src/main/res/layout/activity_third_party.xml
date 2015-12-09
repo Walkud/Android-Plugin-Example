@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/plugin_vertical_margin"
+    android:paddingLeft="@dimen/plugin_horizontal_margin"
+    android:paddingRight="@dimen/plugin_horizontal_margin"
+    android:paddingTop="@dimen/plugin_vertical_margin"
+    tools:context="com.example.pluginstudy.MainActivity">
+
+    <Button
+        android:id="@+id/button_eventbus"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EventBus" />
+
+    <Button
+        android:id="@+id/button_picasso"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Picasso" />
+
+    <ImageView
+        android:id="@+id/img_picasso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_service_volley"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volley" />
+
+    <Button
+        android:id="@+id/button_service_volley_vo"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VolleyToVo" />
+
+
+</LinearLayout>

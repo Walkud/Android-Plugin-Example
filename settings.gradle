@@ -1,0 +1,1 @@
+include ':PluginMain',':PluginCode',':PluginOne',':QrScanCode',':CommonLib'

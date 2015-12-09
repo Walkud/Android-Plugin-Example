@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.plugin.core"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="22" />
+
+    <application>
+
+        <receiver android:name="com.plugin.core.stub.PluginStubReceiver" />
+
+        <activity android:name="com.plugin.core.stub.ui.PluginStubActivity" />
+
+        <!--///////////////////////////////////////////////////////////////////-->
+        <!--///////////////////////////////////////////////////////////////////-->
+        <!--为了支持非standard的launchMode，
+            所有的插件中共有多少个非standard模式的Activity，就在这里注册多少个对应的虚拟的Activity，这些虚拟Activity并不需要真实存在，
+            （实际情况中注册的虚拟activity个数可以比插件中的非standard的activity个数少。因为不太可能所有的插件activity逗同时被唤起）
+
+            虚Activity的命名需遵守如下约定：和PluginStubActivity再同一个包下。
+
+            原因是插件框架会通过PluginStubActivity这个类所在的包名进行判断
+
+            -->
+        <activity
+            android:name="com.plugin.core.stub.ui.PluginStubActivity1"
+            android:exported="false"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.plugin.core.LAUNCH_MODE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.plugin.core.stub.ui.PluginStubActivity2"
+            android:exported="false"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.plugin.core.LAUNCH_MODE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.plugin.core.stub.ui.PluginStubActivity3"
+            android:exported="false"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="com.plugin.core.LAUNCH_MODE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.plugin.core.stub.ui.PluginStubActivity4"
+            android:exported="false"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="com.plugin.core.LAUNCH_MODE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 为了支持Service多实例，扩展Bind，预注册多个代理，使对应插件的Service与预注册的代理Service 一一对应，可以根据需求自行添加删除-->
+        <service android:name="com.plugin.core.proxy.PluginProxyService" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService1" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService2" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService3" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService4" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService5" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService6" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService7" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyService8" >
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <!-- 支持Service独立进程 预注册多个代理-->
+        <service android:name="com.plugin.core.proxy.PluginProxyServiceRemote1"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyServiceRemote2"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.plugin.core.proxy.PluginProxyServiceRemote3"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.plugin.core.PROXY_SERVICE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+
+    </application>
+
+</manifest>

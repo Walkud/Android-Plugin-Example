@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pluginstudy"
+    android:sharedUserId="plugin.example.pluginmain"
+    android:versionCode="1"
+    android:versionName="1.0.2">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".database.SdkDbActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".database.OrmDbActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".SoActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity android:name=".ResourceActivity" />
+        <activity android:name=".testwidget.WebViewActivity" />
+        <activity android:name=".notification.NotificationActivity" />
+        <activity android:name=".testwidget.WidgetActivity" />
+        <activity android:name=".ServiceActivity" />
+        <activity android:name=".DatabaseActivity" />
+        <activity android:name=".BroadCastReceiverActivity" />
+        <activity
+            android:name=".ProviderActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity android:name=".ThirdPartyActivity" />
+        <activity android:name=".testwidget.ListViewActivity" />
+        <activity android:name=".shared.MySharedActivity" />
+
+        <service android:name=".service.ServiceOne" />
+        <service android:name=".service.ServiceTwo" />
+        <service android:name=".service.ServiceThree" />
+        <service android:name=".service.ServiceBindOne" />
+        <service android:name=".service.ServiceBindTwo" />
+        <service
+            android:name=".service.ServiceProcessBindOne"
+            android:process=":remote" />
+
+        <receiver android:name=".receiver.BroadCastReceiverOne">
+            <intent-filter>
+                <action android:name="com.example.pluginstudy.receiver.BroadCastReceiverOne" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.BroadCastReceiverTwo">
+            <intent-filter>
+                <action android:name="com.example.pluginstudy.receiver.BroadCastReceiverTwo" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name=".provider.PluginContentProvider"
+            android:authorities="com.example.pluginstudy.provider"
+            android:exported="true" />
+
+    </application>
+
+
+</manifest>

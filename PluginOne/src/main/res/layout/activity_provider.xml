@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/plugin_vertical_margin"
+    android:paddingLeft="@dimen/plugin_horizontal_margin"
+    android:paddingRight="@dimen/plugin_horizontal_margin"
+    android:paddingTop="@dimen/plugin_vertical_margin">
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/PluginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插入" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更新" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查询" />
+
+    <ListView
+        android:id="@+id/list1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
