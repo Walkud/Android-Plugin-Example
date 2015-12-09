@@ -4,3 +4,4 @@
 appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 
 ![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginGif.gif)
+![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginOne.gif)
