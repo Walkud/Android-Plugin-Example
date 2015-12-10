@@ -31,11 +31,11 @@ appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 >>QrScanCode       插件<br>
 >>……<br>
 
-CommonLib:公用的页面、图片库、网络库、自定义控件等等(注意：当公共库有改动时，需要执行task===>copyCommonLibJar,并同时注意改动在插件中是否会有影响)
-PluginCode:插件化框架
-PluginMain:宿主程序，当前示例中只有资源和配置文件，并无任何代码
-PluginOne:测试插件
-ProvidedJar:一些公用的jar，执行copyCommonLibJar后会在该目录生成一个CommonLib.jar文件用于插件依赖
+CommonLib:公用的页面、图片库、网络库、自定义控件等等(注意：当公共库有改动时，需要执行task===>copyCommonLibJar,并同时注意改动在插件中是否会有影响)<br>
+PluginCode:插件化框架<br>
+PluginMain:宿主程序，当前示例中只有资源和配置文件，并无任何代码<br>
+PluginOne:测试插件<br>
+ProvidedJar:一些公用的jar，执行copyCommonLibJar后会在该目录生成一个CommonLib.jar文件用于插件依赖<br>
 QrScanCode:二维码扫描插件
 
 ###开发模型
