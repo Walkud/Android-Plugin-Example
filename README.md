@@ -101,7 +101,7 @@ dependencies {
 
 
 ##感谢
-Android-Plugin-Framework框架作者 limpoxe
+Android-Plugin-Framework框架作者 limpoxe<br>
 aapt工具提供者 bunnyblue
 
 ##联系
