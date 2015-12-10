@@ -6,6 +6,8 @@ appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 ---
 
 ##Sample
+
+左图为插件在宿主程序中安装并运行效果，右图为插件独立测试运行效果<br>
 ![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginGif.gif)
 ![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginOne.gif)
 
@@ -28,5 +30,47 @@ appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 >>ProvidedJar      jar目录<br>
 >>QrScanCode       插件<br>
 >>……<br>
+
+CommonLib:公用的页面、图片库、网络库、自定义控件等等(注意：当公共库有改动时，需要执行task===>copyCommonLibJar,并同时注意改动在插件中是否会有影响)
+PluginCode:插件化框架
+PluginMain:宿主程序，当前示例中只有资源和配置文件，并无任何代码
+PluginOne:测试插件
+ProvidedJar:一些公用的jar，执行copyCommonLibJar后会在该目录生成一个CommonLib.jar文件用于插件依赖
+QrScanCode:二维码扫描插件
+
+###开发模型
+![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginModel.png)
+
+
+###开发步骤
+示例是基于Android-Plugin-Framework框架的定制aapt方案，所以首先去( https://github.com/bunnyblue/ACDDExtension )下载对应平台的aapt工具,目前我看已经更新至6.0了(赞一个~),在tag中可以下载5.1的aapt工具(buildTools/binary/build.tool.R23/)
+
+1、将下载aapt工具替换掉SDK目录\build-tools\版本\aapt<br>
+2、在插件中build.gradle文件versionName版本添加后缀（0x[2-6]f)，例如:versionName "1.0.2"  --->  versionName "1.0.20x5f"<br>
+3、公共库build.gradle文件添加任务生成插件依赖的Jar包，并执行copyCommonLibJar，生成的jar目录为ProvidedJar
+```
+//删掉指定目录的Jar包
+task clearCommonLibJar(type: Delete) {
+    delete '../ProvidedJar/CommonLib.jar'
+    println 'clearCommonLibJar'
+}
+
+//创建Jar包，生成目录在build/libs
+task createCommonLibJar(type: Jar) {
+    //指定生成的jar名
+    baseName 'CommonLib'
+    from 'build/intermediates/classes/release/'
+    include '**/*.class'
+    println 'createCommonLibJar'
+}
+
+//将生成的Jar包复制到指定目录
+task copyCommonLibJar(type: Copy) {
+    from 'build/libs/CommonLib.jar'
+    into '../ProvidedJar/' // 目标位置
+    println 'copyCommonLibJar'
+}
+```
+
 
 
