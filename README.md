@@ -43,7 +43,7 @@ QrScanCode:二维码扫描插件
 
 
 ###开发步骤
-示例是基于Android-Plugin-Framework框架的定制aapt方案，所以首先去( https://github.com/bunnyblue/ACDDExtension )下载对应平台的aapt工具,目前我看已经更新至6.0了(赞一个~),在tag中可以下载5.1的aapt工具(buildTools/binary/build.tool.R23/)
+示例是基于Android-Plugin-Framework框架的定制aapt方案，所以首先去( https://github.com/bunnyblue/ACDDExtension )下载对应平台的aapt工具,目前我看已经更新至6.0了(赞一个~),在tag中可以下载5.1的aapt工具(buildTools/binary/build.tool.R22/)
 
 1、将下载aapt工具替换掉SDK目录\build-tools\版本\aapt<br>
 2、在插件中build.gradle文件<br>
