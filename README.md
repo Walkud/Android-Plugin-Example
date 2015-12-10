@@ -99,6 +99,38 @@ dependencies {
 ```
 6、运行PluginMain
 
+###插件独立运行配置
+Gralde的灵活强大用起来非常棒(大大的赞一个~)，当然我用的只是最基础的productFlavors和dependencies,在插件build.gradle中使用
+```
+
+    productFlavors {
+        inside {
+            manifestPlaceholders = [ SHARED_USER_ID:""]
+        }
+
+        pluginOne {
+            manifestPlaceholders = [ SHARED_USER_ID:"plugin.example.pluginmain"]
+        }
+    }
+    
+    dependencies {
+    ……
+    pluginOneProvided files(COMMON_LIB) //COMMON_LIB常量为'../ProvidedJar/CommonLib.jar'
+    pluginOneProvided 'com.squareup.picasso:picasso:2.5.2'
+    ……
+
+    insideCompile project(':CommonLib')
+    }
+
+```
+productFlavors用来控制版本、包名、versionName、进程Id等等
+
+dependencies在依赖上进行配置<br>
+1、pluginOneProvided 配置用于插件版本时将jar包参与编译，不参与打包<br>
+2、insideCompile 配置用于在独立测试时，直接依赖于公共库，在开发的时候，修改了代码直接Run,不需要将模块打包成插件再去测试，提高了开发和测试的效率。
+
+###注意事项
+
 待续...
 
 
