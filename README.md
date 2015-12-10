@@ -100,7 +100,7 @@ dependencies {
 6、运行PluginMain
 
 ###插件独立运行配置
-Gralde的灵活强大用起来非常棒(大大的赞一个~)，当然我用的只是最基础的productFlavors和dependencies,在插件build.gradle中使用
+Gralde的灵活强大用起来非常棒(大大的赞一个~)，当然只用最基础的productFlavors和dependencies,在插件build.gradle中使用
 ```
 
     productFlavors {
