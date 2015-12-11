@@ -64,22 +64,11 @@ dependencies {
     pluginOneProvided 'de.greenrobot:eventbus:2.4.0'
     pluginOneProvided 'com.j256.ormlite:ormlite-core:4.48'
     pluginOneProvided 'com.j256.ormlite:ormlite-android:4.48'
-    pluginOneProvided 'com.squareup.okhttp:okhttp:2.5.0'//网络请求volley+okhttp
-    pluginOneProvided 'com.mcxiaoke.volley:library:1.0.19'//网络请求volley+okhttp
+    pluginOneProvided 'com.squareup.okhttp:okhttp:2.5.0'//okhttp
+    pluginOneProvided 'com.mcxiaoke.volley:library:1.0.19'//volley
     pluginOneProvided 'com.google.code.gson:gson:2.3.1'
 
     provided 'com.jakewharton:butterknife:7.0.1'
 
     insideCompile project(':CommonLib')
-    insideCompile project(':PluginCode')
-
-
-//    insideProvided files(SUPPORT_V4_JAR)
-//    insideProvided files(COMMON_LIB)
-//    insideProvided files(PLUGIN_CODE_LIB)
-//    insideProvided files(RECYCLER_VIEW)
-//    insideProvided 'com.squareup.picasso:picasso:2.5.2'
-//    insideProvided 'de.greenrobot:eventbus:2.4.0'
-//    insideProvided 'com.j256.ormlite:ormlite-core:4.48'
-//    insideProvided 'com.j256.ormlite:ormlite-android:4.48'
 }
