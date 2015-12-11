@@ -1,6 +1,6 @@
 # Android-Plugin-Example
 
-该示例基于Android-Plugin-Framework框架，只对实现作相应说明，原理请移驾( https://github.com/limpoxe/Android-Plugin-Framework ) 使用的方案为：定制aapt方案，<br>
+该示例基于Android-Plugin-Framework框架，只对定制aapt方案实现作相应说明，原理请移驾( https://github.com/limpoxe/Android-Plugin-Framework )<br>
 appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 
 ---
@@ -12,8 +12,12 @@ appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 ![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginOne.gif)
 
 ##示例说明
+示例主要说明点：<br>
+1、插件化开发步骤<br>
+2、插件模块在不改动任何代码及配置文件的情况下支持独立运行
+
 ###目的
-第一次在GitHub上建立开源项目，也是头一次写这些东西，技术很菜，有错误的地方请大家提出来，虽然这个库是建立在Android-Plugin-Framework之上写的，但是主要的目的是分享一下自己的一些想法，同时学习GitHub的使用，提升自己，希望更多的开发者一起让这个框架更为强大、支持更多。
+第一次在GitHub上建立开源项目，也是头一次写这些东西，技术很菜，有错误的地方请大家提出来，这个项目是建立在Android-Plugin-Framework之上写的，主要的目的是分享一下自己的一些想法，同时学习GitHub的使用，提升自己，希望更多的开发者一起让这个框架更为强大、支持更多。
 
 ###项目结构说明
 >Android-Plugin-Example<br>
@@ -122,6 +126,13 @@ productFlavors用来控制版本、包名、versionName、进程Id等等
 dependencies在依赖上进行配置<br>
 1、pluginOneProvided 配置用于插件版本时将jar包参与编译，不参与打包<br>
 2、insideCompile 配置用于在独立测试时，直接依赖于公共库，在开发的时候，修改了代码直接Run,不需要将模块打包成插件再去测试，提高了开发和测试的效率。
+
+当然了在实际的项目中插件困难会依赖宿主程序的一些缓存数据作为前提，那么在独立运行的时候该怎么去初始化这些数据呢？初始化数据代码在打插件包的时候如何去掉呢？<br>
+解决方案：<br>
+1、在启动插件首页之前，添加一个驱动模块，用于初始化数据<br>
+2、使用productFlavors在打包的时候自动去掉驱动模块<br>
+
+待续...
 
 ###注意事项
 1、定制aapt方案暂时不支持插件的布局等资源文件中使用公共库资源<br>
