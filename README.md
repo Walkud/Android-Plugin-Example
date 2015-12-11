@@ -97,7 +97,7 @@ dependencies {
 ```
 6、运行PluginMain
 
-###插件独立运行配置
+###插件独立运行配置(以PluginOne插件为例)
 Gralde的灵活强大用起来非常棒(大大的赞一个~)，当然只用最基础的productFlavors和dependencies,在插件build.gradle中使用
 ```
 
@@ -121,7 +121,7 @@ Gralde的灵活强大用起来非常棒(大大的赞一个~)，当然只用最�
     }
 
 ```
-productFlavors用来控制版本、包名、versionName、进程Id等等
+productFlavors用来控制版本、包名、versionName、共享进程Id、驱动模块等等
 
 dependencies在依赖上进行配置<br>
 1、pluginOneProvided 配置用于插件版本时将jar包参与编译，不参与打包<br>
@@ -130,9 +130,16 @@ dependencies在依赖上进行配置<br>
 当然了在实际的项目中插件困难会依赖宿主程序的一些缓存数据作为前提，那么在独立运行的时候该怎么去初始化这些数据呢？初始化数据代码在打插件包的时候如何去掉呢？<br>
 解决方案：<br>
 1、在启动插件首页之前，添加一个驱动模块，用于初始化数据<br>
-2、使用productFlavors在打包的时候自动去掉驱动模块<br>
+在插件模块中src/inside/java/添加添加一个Activity ,在该Activity中进行初始化操作(inside名称与 productFlavors 测试版本变种一致)
 
-待续...
+2、使用productFlavors在打包的时候自动去掉驱动模块<br>
+生成插件apk的时候需要选择productFlavors pluginOne 进行打包
+
+如此简单的2个步骤就搞定了,上真相<br>
+左图为debug包反编译jar，右图为插件包反编译jar<br>
+![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginDebugJar.png)
+![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginReleaseJar.png)
+
 
 ###注意事项
 1、定制aapt方案暂时不支持插件的布局等资源文件中使用公共库资源<br>
