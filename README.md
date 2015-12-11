@@ -8,6 +8,7 @@ appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 ##Sample
 
 左图为插件在宿主程序中安装并运行效果，右图为插件独立测试运行效果<br>
+两图效果上有点差异是因为插件没配置主题时，使用的是宿主程序的主题<br>
 ![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginGif.gif)
 ![](https://github.com/Walkud/Android-Plugin-Example/blob/master/image/PluginOne.gif)
 
