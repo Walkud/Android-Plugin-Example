@@ -12,6 +12,15 @@ android {
         versionName "1.0"
     }
 
+    signingConfigs {
+        myConfig {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -24,8 +33,18 @@ android {
 
     buildTypes {
         release {
+            signingConfig signingConfigs.myConfig
             minifyEnabled false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        inside {
+        }
+
+        pluginMain {
         }
     }
 }
