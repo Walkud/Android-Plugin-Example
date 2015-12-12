@@ -148,6 +148,8 @@ dependencies在依赖上进行配置<br>
 2、即使在布局中使用公共库的资源，编译时也不会报错，因为使用了insideCompile依赖，在生成插件apk的时候就会报错<br>
 3、特别注意插件中  buildToolsVersion和versionName的配置，看似小问题，在这上面吃了很多亏
 
+###框架支持项
+查看支持项请移驾( https://github.com/limpoxe/Android-Plugin-Framework )
 
 ##总结
 肚子油墨太少，写总结真是"太困难"<br>
