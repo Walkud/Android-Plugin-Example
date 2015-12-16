@@ -135,15 +135,16 @@ public class PluginStubBinding {
             HashMap<String, String> mapping = restore(SERVICE_MAPPING_KEY);
             if (mapping != null) {
                 serviceMapping.putAll(mapping);
-                save(serviceMapping, SERVICE_MAPPING_KEY);
             }
 
             //从磁盘恢复独立进程映射
             mapping = restore(SERVICE_PROCESS_MAPPING_KEY);
             if (mapping != null) {
                 serviceProcessMapping.putAll(mapping);
-                save(serviceProcessMapping, SERVICE_PROCESS_MAPPING_KEY);
             }
+
+            save(serviceMapping, SERVICE_MAPPING_KEY);
+            save(serviceProcessMapping, SERVICE_PROCESS_MAPPING_KEY);
         }
     }
 
@@ -158,24 +159,25 @@ public class PluginStubBinding {
 
         initPool();
 
-        Iterator<Map.Entry<String, String>> itr = null;
+        HashMap<String, String> bindingMapping = null;
 
         if (launchMode == ActivityInfo.LAUNCH_SINGLE_TASK) {
 
-            itr = singleTaskMapping.entrySet().iterator();
+            bindingMapping = singleTaskMapping;
 
         } else if (launchMode == ActivityInfo.LAUNCH_SINGLE_TOP) {
 
-            itr = singleTopMapping.entrySet().iterator();
+            bindingMapping = singleTopMapping;
 
         } else if (launchMode == ActivityInfo.LAUNCH_SINGLE_INSTANCE) {
 
-            itr = singleInstanceMapping.entrySet().iterator();
+            bindingMapping = singleInstanceMapping;
 
         }
 
-        if (itr != null) {
+        if (bindingMapping != null) {
 
+            Iterator<Map.Entry<String, String>> itr = bindingMapping.entrySet().iterator();
             String idleStubActivityName = null;
 
             while (itr.hasNext()) {
@@ -186,19 +188,14 @@ public class PluginStubBinding {
                         //这里找到空闲的stubactivity以后，还需继续遍历，用来检查是否pluginActivityClassName已经绑定过了
                     }
                 } else if (pluginActivityClassName.equals(entry.getValue())) {
+                    //已绑定过，直接返回
                     return entry.getKey();
                 }
             }
 
             //没有绑定到StubActivity，而且还有空余的stubActivity，进行绑定
             if (idleStubActivityName != null) {
-                if (launchMode == ActivityInfo.LAUNCH_SINGLE_TASK) {
-                    singleTaskMapping.put(idleStubActivityName, pluginActivityClassName);
-                } else if (launchMode == ActivityInfo.LAUNCH_SINGLE_TOP) {
-                    singleTopMapping.put(idleStubActivityName, pluginActivityClassName);
-                } else if (launchMode == ActivityInfo.LAUNCH_SINGLE_INSTANCE) {
-                    singleInstanceMapping.put(idleStubActivityName, pluginActivityClassName);
-                }
+                bindingMapping.put(idleStubActivityName, pluginActivityClassName);
                 return idleStubActivityName;
             }
 
