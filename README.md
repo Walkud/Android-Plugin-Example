@@ -1,5 +1,7 @@
 # Android-Plugin-Example
 
+说在前面，为了尊重Android-Plugin-Example作者的劳动成果，本示例只提供一种aapt的解决方案，不会再更新。
+
 该示例基于Android-Plugin-Framework框架，只对定制aapt方案实现作相应说明，原理请移驾( https://github.com/limpoxe/Android-Plugin-Framework )<br>
 appt工具来自OpenAtlasExtension https://github.com/bunnyblue/ACDDExtension
 
